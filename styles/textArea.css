@@ -1,0 +1,15 @@
+#html_editor{
+    background: #d3d3d3;
+    color: black;
+    border: 3px solid ;
+}
+#css_editor{
+    background: #d3d3d3;
+    color: black;
+    border: 3px solid #264de4;
+}
+#js_editor{
+    background: #d3d3d3;
+    color: black;
+    border: 3px solid #F0DB4F;
+}

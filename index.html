@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Editeur de code</title>
+        <link rel="stylesheet" href="styles/progress.css"/>
+        <link rel="stylesheet" href="styles/buttons.css"/>
+        <link rel="stylesheet" href="styles/textArea.css"/>
+        <meta charset="utf-8"/>
+        
+    </head>
+    <body>
+        <form>
+            <section class="menu">
+                <button id="html_btn" type="button" onclick="showHtmlArea()">HTML</button>
+                <button id="css_btn" type="button" onclick="showCssArea()">CSS</button>
+                <button id="js_btn" type="button" onclick="showJsArea()">JavaScript</button>
+            </section>
+            <section class="textAreas">
+                <textarea id="html_editor" name="html_editor" rows="10" cols="80" maxlength="200"
+                onkeyup="ChangeHtmlProgressBar()" style="font-size: 20px;"></textarea>
+
+                <textarea id="css_editor" name="css_editor" rows="10" cols="80" maxlength="200" style="display: none; font-size: 20px;"
+                onkeyup="ChangeCssProgressBar()"></textarea>
+
+                <textarea id="js_editor" name="js_editor" rows="10" cols="80" maxlength="200" style="display: none; font-size: 20px;"
+                onkeyup="ChangeJsProgressBar()"></textarea>
+            </section>
+            <br/>
+            <br/>
+
+            <div class="progress">
+                <label for="progress_container" >HTML</label>
+                <div id="html_progress" class="progress_container">
+                    <div></div>
+                </div>
+                <div id="html_pourcentage" class="pourcentage">0%</div>
+            </div>
+            <div class="progress">
+                <label for="progress_container">CSS</label>
+                <div id="css_progress" class="progress_container">
+                    <div></div>
+                </div>
+                <div id="css_pourcentage" class="pourcentage">0%</div>
+            </div>
+            <div class="progress">
+                <label for="progress_container" >JavaScript</label>
+                <div id="js_progress" class="progress_container">
+                    <div></div>
+                </div>
+                <div id="js_pourcentage" class="pourcentage">0%</div>
+            </div>
+<!--
+            <progress id="html_bar" class="bar" title="HTML" max="100" value="0" onchange="htmlBarChanged()" onvolumechange="htmlBarChanged()"></progress>
+
+            <progress id="css_bar" class="bar" title="CSS" max="100" value="0"></progress>
+
+            <progress id="js_bar" class="bar" title="JS" max="100" value="0"></progress>
+-->
+        </form>
+
+
+        <script src="scripts/main.js"></script>
+        <script src="scripts/jquery.js"></script>     
+        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    </body>
+</html>
