@@ -24,19 +24,19 @@
             <section class="textAreas">
                 <div id = "html_editor_container">
                     <div>
-                        <div>
+                        <select name="lengths" class="select" id="lengths_html" onchange="changeCharLengthHTML()">
+                            <option value="200">200 caractères</option>
+                            <option value="300">300 caractères</option>
+                            <option value="400">400 caractères</option>
+                            <option value="500">500 caractères</option>
+                            <option value="600">600 caractères</option>
+                        </select>
                         <button id="div" type="button" onclick="btnDivClicked()">div</button>
                         <button id="paragraphe" type="button" onclick="btnParagrapheClicked()">P</button>
                         <button id="titre" type="button" onclick="btnTitreClicked()">h1</button>
                         <button id="span" type="button" onclick="btnSpanClicked()">span</button>
-                        </div>
-                    <select name="lengths" class="select" id="lengths_html" onchange="changeCharLengthHTML()">
-                        <option value="200">200 caractères</option>
-                        <option value="300">300 caractères</option>
-                        <option value="400">400 caractères</option>
-                        <option value="500">500 caractères</option>
-                        <option value="600">600 caractères</option>
-                    </select>
+                        
+                   
                     </div>
                     <textarea id="html_editor" name="html_editor" rows="10" cols="80" maxlength="200"
                     onkeyup="OnHtmlEditorChanged()" style="font-size: 20px;"></textarea>
