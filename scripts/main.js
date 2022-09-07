@@ -154,3 +154,24 @@ function Execute()
     iframe.contentWindow.document.close();
     iframe.contentDocument.write(`<style>${cssTextArea.value}</style>  ${htmlTextArea.value} <script>${jsTextArea.value}</script>`);
 }
+
+
+function btnDivClicked(){
+    let textArea = document.querySelector("#html_editor");
+    textArea.value += "<div></div>";
+}
+
+function btnParagrapheClicked(){
+    let textArea = document.querySelector("#html_editor");
+    textArea.value += "<p></p>";
+}
+
+function btnSpanClicked(){
+    let textArea = document.querySelector("#html_editor");
+    textArea.value += "<span></span>";
+}
+
+function btnTitreClicked(){
+    let textArea = document.querySelector("#html_editor");
+    textArea.value += "<h1></h1>";
+}
