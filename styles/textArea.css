@@ -13,3 +13,11 @@
     color: black;
     border: 3px solid #F0DB4F;
 }
+
+#css_editor_container{
+    display: none;
+}
+
+#js_editor_container{
+    display: none;
+}
