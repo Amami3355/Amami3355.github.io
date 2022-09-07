@@ -1,11 +1,38 @@
 #html_btn{
-    background-color: white;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+#html_btn:hover{
+    background-color: #f06529;
 }
 
 #css_btn{
-    background: #264de4;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+#css_btn:hover{
+    background-color:#264de4;
 }
 
 #js_btn{
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+#js_btn:hover{
     background-color:#F0DB4F;
 }
+
+#execute{
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+

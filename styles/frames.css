@@ -1,0 +1,26 @@
+
+.frame{
+    width: 900px;
+    height: 400px;
+    margin: 20px 0;
+    border: 3px solid black;
+    background: #d3d3d3;
+    color: black;
+}
+#html_frame{
+    border: 3px solid black;
+    background: #d3d3d3;
+    color: black;
+}
+
+#css_frame{
+    border: 3px solid #264de4;
+    background: #d3d3d3;
+    color: black;
+}
+
+#js_frame{
+    border: 3px solid #F0DB4F;
+    background: #d3d3d3;
+    color: black;
+}

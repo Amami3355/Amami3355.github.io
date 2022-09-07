@@ -5,21 +5,26 @@
         <link rel="stylesheet" href="styles/progress.css"/>
         <link rel="stylesheet" href="styles/buttons.css"/>
         <link rel="stylesheet" href="styles/textArea.css"/>
+        <link rel="stylesheet" href="styles/frames.css"/>
         <meta charset="utf-8"/>
         
     </head>
     <body>
         <form>
             <section class="menu">
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++buttons+++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
                 <button id="html_btn" type="button" onclick="showHtmlArea()">HTML</button>
                 <button id="css_btn" type="button" onclick="showCssArea()">CSS</button>
                 <button id="js_btn" type="button" onclick="showJsArea()">JavaScript</button>
                 
             </section>
+
             <section class="textAreas">
                 <div id = "html_editor_container">
                     <div>
-                    <select name="lengths" id="lengths_html" onchange="changeCharLengthHTML()">
+                    <select name="lengths" class="select" id="lengths_html" onchange="changeCharLengthHTML()">
                         <option value="200">200 caractères</option>
                         <option value="300">300 caractères</option>
                         <option value="400">400 caractères</option>
@@ -28,11 +33,11 @@
                     </select>
                     </div>
                     <textarea id="html_editor" name="html_editor" rows="10" cols="80" maxlength="200"
-                    onkeyup="ChangeHtmlProgressBar()" style="font-size: 20px;"></textarea>
+                    onkeyup="OnHtmlEditorChanged()" style="font-size: 20px;"></textarea>
                 </div>
                 <div id = "css_editor_container">
                     <div>
-                    <select name="lengths" id="lengths_css" onchange="changeCharLengthCSS()">
+                    <select name="lengths" class="select" id="lengths_css" onchange="changeCharLengthCSS()">
                         <option value="200">200 caractères</option>
                         <option value="300">300 caractères</option>
                         <option value="400">400 caractères</option>
@@ -41,11 +46,11 @@
                     </select>
                     </div>
                     <textarea id="css_editor" name="css_editor" rows="10" cols="80" maxlength="200" style="font-size: 20px;"
-                    onkeyup="ChangeCssProgressBar()"></textarea>
+                    onkeyup="OnCssEditorChanged()"></textarea>
                 </div>
                 <div id = "js_editor_container">
                     <div>
-                    <select name="lengths" id="lengths_js" onchange="changeCharLengthJS()">
+                    <select name="lengths" class="select" id="lengths_js" onchange="changeCharLengthJs()">
                         <option value="200">200 caractères</option>
                         <option value="300">300 caractères</option>
                         <option value="400">400 caractères</option>
@@ -54,12 +59,23 @@
                     </select>
                     </div>
                     <textarea id="js_editor" name="js_editor" rows="10" cols="80" maxlength="200" style="font-size: 20px;"
-                    onkeyup="ChangeJsProgressBar()"></textarea>
+                    onkeyup="OnJsEditorChanged()"></textarea>
                 </div>
             </section>
             <br/>
             <br/>
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++button+++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
+<div>
+    <button id="execute" type="button" onclick="Execute()">Exécuter</button>
+</div>
+
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++Progress bars+++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+            <section class="progress">
             <div class="progress">
                 <label for="progress_container" >HTML</label>
                 <div id="html_progress" class="progress_container">
@@ -81,13 +97,27 @@
                 </div>
                 <div id="js_pourcentage" class="pourcentage">0%</div>
             </div>
+            </section>
 
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++Frames+++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+            <section id="frames"></section>
+                <div id="wrap">
+                    <iframe name="iframe" class="frame" id="iframe" src=""  cellspacing="0">
+                        
+                    </iframe>
+                
+                </div>
+            </section>
         </form>
+
+        
 
 
         <script src="scripts/main.js"></script>
-        <script src="scripts/jquery.js"></script>     
+        <script src="scripts/jquery.js"></script>           
         <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
     </body>
 </html>
