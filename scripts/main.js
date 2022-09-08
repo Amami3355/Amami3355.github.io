@@ -1,3 +1,4 @@
+//-----------------------Global variables
 
 //-----------------------Text Areas and progress bars
 
@@ -47,9 +48,19 @@ function DisplayHtmlFrame(){
 
 }
 
+function ChangeHTMLMaxLength(){
+    let htmlTextArea = document.querySelector("#html_editor");
+    let lengthHtml = document.querySelector("#lengths_html");
+            // Change maxLength of htmlTextArea according to html tags
+    htmlTextArea.maxLength = (htmlTextArea.value.length - htmlTextArea.value.replace(/<\/?[^>]+>/gi, "").length) + Number(lengthHtml.value);
+    
+}
+
 function OnHtmlEditorChanged(){
+    
     DisplayHtmlFrame();
     ChangeHtmlProgressBar();
+    ChangeHTMLMaxLength();
 }
 
 function OnCssEditorChanged(){
@@ -67,15 +78,20 @@ function ChangeHtmlProgressBar(){
     let lengthsHtml = document.querySelector("#lengths_html");
     let progressBar = document.querySelector("#html_progress div");
     let pourcentage = document.querySelector("#html_pourcentage");
-    progressBar.style.width = `${htmlTextArea.value.length/lengthsHtml.value*100}%`;
-    pourcentage.textContent = `${htmlTextArea.value.length/lengthsHtml.value*100}%`;
-    if (htmlTextArea.value.length <= 1/2*lengthsHtml.value){
-        progressBar.style.backgroundColor = "green";
-    }else if ((htmlTextArea.value.length> (lengthsHtml.value/2)) && (htmlTextArea.value.length <= 4/5*lengthsHtml.value)){
-        progressBar.style.backgroundColor = "orange";
-    }else{
-        progressBar.style.backgroundColor = "red";
+    let textLength = htmlTextArea.value.replace(/<\/?[^>]+>/gi, "").length;
+    if(textLength <= lengthsHtml.value){
+        progressBar.style.width = `${textLength/lengthsHtml.value*100}%`;
+        pourcentage.textContent = `${textLength/lengthsHtml.value*100}%`;
+    
+        if (textLength <= 1/2*lengthsHtml.value){
+            progressBar.style.backgroundColor = "green";
+        }else if ((textLength> (lengthsHtml.value/2)) && (textLength <= 4/5*lengthsHtml.value)){
+            progressBar.style.backgroundColor = "orange";
+        }else{
+            progressBar.style.backgroundColor = "red";
+        }
     }
+    
 }
 
 
@@ -128,6 +144,9 @@ function changeCharLengthHTML(){
     let htmlEditor = document.querySelector("#html_editor");
     let lengthsHtml = document.querySelector("#lengths_html");
     htmlEditor.maxLength = lengthsHtml.value;
+    ChangeHtmlProgressBar();
+    ChangeCssProgressBar();
+    ChangeJsProgressBar();
 
 }
 
@@ -157,21 +176,33 @@ function Execute()
 
 
 function btnDivClicked(){
+    
     let textArea = document.querySelector("#html_editor");
-    textArea.value += "<div></div>";
+    let lengthsHtml = document.querySelector("#lengths_html");
+    console.log("tt" + textArea.value.length);
+    console.log("ll"+lengthsHtml.value);
+    if (textArea.value.replace(/<\/?[^>]+>/gi, "").length < lengthsHtml.value)
+        textArea.value += "<div></div>";
+    console.log(textArea.maxLength);
 }
 
 function btnParagrapheClicked(){
     let textArea = document.querySelector("#html_editor");
-    textArea.value += "<p></p>";
+    let lengthsHtml = document.querySelector("#lengths_html");
+    if (textArea.value.replace(/<\/?[^>]+>/gi, "").length < lengthsHtml.value)
+        textArea.value += "<p></p>";
 }
 
 function btnSpanClicked(){
     let textArea = document.querySelector("#html_editor");
-    textArea.value += "<span></span>";
+    let lengthsHtml = document.querySelector("#lengths_html");
+    if (textArea.value.replace(/<\/?[^>]+>/gi, "").length < lengthsHtml.value)
+        textArea.value += "<span></span>";
 }
 
 function btnTitreClicked(){
     let textArea = document.querySelector("#html_editor");
-    textArea.value += "<h1></h1>";
+    let lengthsHtml = document.querySelector("#lengths_html");
+    if (textArea.value.replace(/<\/?[^>]+>/gi, "").length < lengthsHtml.value)
+        textArea.value += "<h1></h1>";
 }
