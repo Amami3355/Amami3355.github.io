@@ -90,6 +90,10 @@ function ChangeHtmlProgressBar(){
         }else{
             progressBar.style.backgroundColor = "red";
         }
+    }else{
+        progressBar.style.width = `100%`;
+        pourcentage.textContent = `100%`;
+        progressBar.style.backgroundColor = "red";
     }
     
 }
@@ -100,13 +104,19 @@ function ChangeCssProgressBar(){
     let lengthsCss = document.querySelector("#lengths_css");
     let progressBar = document.querySelector("#css_progress div");
     let pourcentage = document.querySelector("#css_pourcentage");
-    progressBar.style.width = `${cssTextArea.value.length/lengthsCss.value*100}%`;
-    pourcentage.textContent = `${cssTextArea.value.length/lengthsCss.value*100}%`;
-    if (cssTextArea.value.length <= 1/2*lengthsCss.value){
-        progressBar.style.backgroundColor = "green";
-    }else if ((cssTextArea.value.length> 1/2*lengthsCss.value) && (cssTextArea.value.length <= 4/5*lengthsCss.value)){
-        progressBar.style.backgroundColor = "orange";
+    if(cssTextArea.value.length <= lengthsCss.value){
+        progressBar.style.width = `${cssTextArea.value.length/lengthsCss.value*100}%`;
+        pourcentage.textContent = `${cssTextArea.value.length/lengthsCss.value*100}%`;
+        if (cssTextArea.value.length <= 1/2*lengthsCss.value){
+            progressBar.style.backgroundColor = "green";
+        }else if ((cssTextArea.value.length> 1/2*lengthsCss.value) && (cssTextArea.value.length <= 4/5*lengthsCss.value)){
+            progressBar.style.backgroundColor = "orange";
+        }else{
+            progressBar.style.backgroundColor = "red";
+        }
     }else{
+        progressBar.style.width = `100%`;
+        pourcentage.textContent = `100%`;
         progressBar.style.backgroundColor = "red";
     }
 }
@@ -117,13 +127,19 @@ function ChangeJsProgressBar(){
     let lengthsJs = document.querySelector("#lengths_js");
     let progressBar = document.querySelector("#js_progress div");
     let pourcentage = document.querySelector("#js_pourcentage");
-    progressBar.style.width = `${jsTextArea.value.length/lengthsJs.value*100}%`;
-    pourcentage.textContent = `${jsTextArea.value.length/lengthsJs.value*100}%`;
-    if (jsTextArea.value.length <= 1/2*lengthsJs.value){
-        progressBar.style.backgroundColor = "green";
-    }else if ((jsTextArea.value.length> 1/2*lengthsJs.value) && (jsTextArea.value.length <= 4/5*lengthsJs.value)){
-        progressBar.style.backgroundColor = "orange";
+    if(jsTextArea.value.length <= lengthsJs.value){
+        progressBar.style.width = `${jsTextArea.value.length/lengthsJs.value*100}%`;
+        pourcentage.textContent = `${jsTextArea.value.length/lengthsJs.value*100}%`;
+        if (jsTextArea.value.length <= 1/2*lengthsJs.value){
+            progressBar.style.backgroundColor = "green";
+        }else if ((jsTextArea.value.length> 1/2*lengthsJs.value) && (jsTextArea.value.length <= 4/5*lengthsJs.value)){
+            progressBar.style.backgroundColor = "orange";
+        }else{
+            progressBar.style.backgroundColor = "red";
+        }
     }else{
+        progressBar.style.width = `100%`;
+        pourcentage.textContent = `100%`;
         progressBar.style.backgroundColor = "red";
     }
 }
